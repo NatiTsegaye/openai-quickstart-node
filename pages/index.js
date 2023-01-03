@@ -1,13 +1,14 @@
 import Head from "next/head";
 import { useState } from "react";
 import styles from "./index.module.css";
-
+import { BarLoader } from "react-spinners";
 export default function Home() {
   const [videoURL, setVideoURL] = useState("");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
     event.preventDefault();
+    setResult(<BarLoader color="#10a37f" loading={true} />);
     try {
       const response = await fetch("/api/generate", {
         method: "POST",
@@ -24,13 +25,13 @@ export default function Home() {
           new Error(`Request failed with status ${response.status}`)
         );
       }
-
       setResult(data.result);
       setVideoURL("");
     } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
+      setResult("");
     }
   }
 

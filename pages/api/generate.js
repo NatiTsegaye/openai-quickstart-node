@@ -18,17 +18,16 @@ export default async function (req, res) {
   }
 
   try {
-    const transcript = await getTranscript(
+    const transcriptList = await getTranscript(
       req.body.videoURL,
       req.body.language
     );
-    const response = await openai.createCompletion({
-      model: "text-davinci-003",
-      prompt: `summarize the following in a first person voice and concise paragraphs: ${transcript}}`,
-      temperature: 0.6,
-      max_tokens: 500,
-    });
-    res.status(200).json({ result: response.data.choices[0].text });
+    const summary = await Promise.all(
+      transcriptList.map((transcript) => {
+        return getSummary(transcript);
+      })
+    );
+    res.status(200).json({ result: summary.join(" ") });
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -46,10 +45,27 @@ export default async function (req, res) {
 }
 
 const getTranscript = async (videoURL, language) => {
-  return await YoutubeTranscript.fetchTranscript(videoURL, {
+  const transcript = await YoutubeTranscript.fetchTranscript(videoURL, {
     lang: language,
   }).then((res) => {
     const transcript = res.map((item) => item.text).join(" ");
     return transcript;
   });
+  const transcriptList = [];
+  const words = transcript.split(" ");
+  let i = 0;
+  while (i < words.length) {
+    transcriptList.push(words.slice(i, (i += 1000)).join(" "));
+  }
+  return transcriptList;
+};
+
+const getSummary = async (transcript) => {
+  const response = await openai.createCompletion({
+    model: "text-davinci-003",
+    prompt: `summarize the following in a first person voice and concise paragraphs: ${transcript}}`,
+    temperature: 0.6,
+    max_tokens: 500,
+  });
+  return response.data.choices[0].text;
 };
