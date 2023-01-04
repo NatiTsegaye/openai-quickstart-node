@@ -22,12 +22,13 @@ export default async function (req, res) {
       req.body.videoURL,
       req.body.language
     );
-    const summary = await Promise.all(
+    const prompt = req.body.prompt;
+    const result = await Promise.all(
       transcriptList.map((transcript) => {
-        return getSummary(transcript);
+        return handlePrompt(transcript, prompt);
       })
     );
-    res.status(200).json({ result: summary.join(" ") });
+    res.status(200).json({ result: result.join(" ") });
   } catch (error) {
     // Consider adjusting the error handling logic for your use case
     if (error.response) {
@@ -60,10 +61,10 @@ const getTranscript = async (videoURL, language) => {
   return transcriptList;
 };
 
-const getSummary = async (transcript) => {
+const handlePrompt = async (transcript, prompt) => {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `summarize the followign in a bullet point list: ${transcript}}`,
+    prompt: `${prompt}: ${transcript}}`,
     temperature: 0.6,
     max_tokens: 200,
   });
