@@ -17,8 +17,9 @@ const CustomTextField = styled(TextField)({
   },
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
-      borderColor: 'black',
+      borderColor: 'white',
       borderRadius: 30,
+      borderBottomColor: 'grey',
     },
     fontFamily: 'Papyrus',
     fontWeight: 600,
@@ -112,13 +113,20 @@ export default function Home() {
           value={videoURL}
           onChange={(e) => setVideoURL(e.target.value)}
         />
+        <CustomTextField
+          fullWidth
+          type="text"
+          name="animal"
+          placeholder="Enter a prompt"
+          onChange={(e) => setVideoURL(e.target.value)}
+        />
 
         <Button variant="outlined" type="submit" sx={{mt:5, ml: 20, borderRadius: 4, borderColor: 'black', color: 'black', '&:hover': {color: 'white',backgroundColor: '#FFFF00', borderColor: '#FFFF00'}}} >
           <Typography fontFamily={'Papyrus'} fontWeight={600} fontSize={13} letterSpacing={0.7} >
           <mark style={{backgroundColor: '#FFFF00'}}>Generate Summary</mark>
           </Typography>
         </Button>
-              </Stack>
+        </Stack>
       </form>
       </Box>
       </Stack>
