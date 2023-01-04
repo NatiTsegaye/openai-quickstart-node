@@ -63,7 +63,7 @@ const getTranscript = async (videoURL, language) => {
 const getSummary = async (transcript) => {
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `summarize the following in a first person voice and concise paragraphs: ${transcript}}`,
+    prompt: `summarize the followign in a bullet point list: ${transcript}}`,
     temperature: 0.6,
     max_tokens: 200,
   });

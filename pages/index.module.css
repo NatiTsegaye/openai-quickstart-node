@@ -1,5 +1,5 @@
 @font-face {
-  font-family: "ColfaxAI";
+  font-family: "Papyrus";
   src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
       format("woff2"),
     url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
@@ -7,7 +7,7 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "ColfaxAI";
+  font-family: "Papyrus";
   src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
     url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
   font-weight: bold;
@@ -18,7 +18,7 @@
   font-size: 16px;
   line-height: 24px;
   color: #353740;
-  font-family: "ColfaxAI", Helvetica, sans-serif;
+  font-family: "Papyrus", Helvetica, sans-serif;
 }
 .main {
   display: flex;
@@ -49,8 +49,9 @@
   outline-color: #10a37f;
 }
 .main ::placeholder {
-  color: #8e8ea0;
+  color: #2a2a2f;
   opacity: 1;
+  font-family: Papyrus;
 }
 .main input[type="submit"] {
   padding: 12px 0;
@@ -61,7 +62,8 @@
   text-align: center;
   cursor: pointer;
 }
-.main .result {
-  font-weight: bold;
-  margin-top: 40px;
+.mark {
+  background-color:darkgray;
+  color:black;
 }
+
