@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { StrictMode, useState, useEffect } from "react";
 import styles from "./index.module.css";
+import logo2 from "../public/logo2.png";
 import Particles from "./particles";
 import { loadSlim } from "tsparticles-slim";
 import { particlesOptions } from "./config";
@@ -9,15 +10,16 @@ import {
   Box,
   TextField,
   Button,
-  Card,
+  Link,
   Typography,
   Grid,
   styled,
-  Paper,
   Stack,
   Divider,
   AppBar,
+  Toolbar,
 } from "@mui/material";
+import { borderRadius } from "@mui/system";
 
 const CustomTextField = styled(TextField)({
   "& label.Mui-focused": {
@@ -29,7 +31,7 @@ const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
       borderColor: "white",
-      borderRadius: 30,
+      borderRadius: 10,
       borderBottomColor: "grey",
     },
     fontFamily: "Papyrus",
@@ -108,21 +110,65 @@ export default function Home() {
           <Head>
             <title>Youtube Summary</title>
           </Head>
-          <Box sx={{ display: "flex" }}>
+          <AppBar sx={{backgroundColor: "white", borderColor: "white", opacity: 0.9, boxShadow: 0}} position="static" fullWidth>
+            <Toolbar>
+                <Box
+                    component="img"
+                    sx={{
+                    height: 64,
+                    opacity: 1  ,
+                    }}
+                    alt="Your logo."
+                    src={"logo2.png"}
+                    
+                />
+                  <Box
+                  ml={'auto'}
+                  mr={{xs:-20, md:0}}
+                  >
+                    <Link href="https://www.linkedin.com/in/gedion-alemayehu/">
+                    <Button
+                      sx={{
+                        borderRadius: 10,
+                        borderColor: "black",
+                        color: "black",
+                        "&:hover": {
+                          color: "white",
+                          backgroundColor: "#FFFF00",
+                          borderColor: "#FFFF00",
+                        },
+                      }}
+                    >
+                        <Typography 
+                            fontFamily={"Papyrus"}  
+                            fontWeight={600}
+                            fontSize={11}
+                            letterSpacing={1}
+                            sx={{color: "black"}}
+                        >
+                          Contact Us
+                        </Typography>
+                    </Button>
+                    </Link>
+                  </Box>
+            </Toolbar>
+          </AppBar>
+          <Box sx={{ display: "flex"} }>
             <Stack
-              sx={{ p: 20, mx: "auto" }}
+              sx={{mx: "auto" }}
+              padding={{ xs: 1, sm: 1, md: 20 }}
               direction={{ xs: "column", sm: "row" }}
-              spacing={{ xs: 1, sm: 10, md: 10 }}
+              spacing={{ xs: 10, sm: 10, md: 10 }}
               divider={<Divider orientation="vertical" flexItem />}
             >
-              <Box sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex" }} >
                 <Typography
                   fontFamily={"Papyrus"}
-                  fontWeight={600}
+                  fontWeight={900}
                   fontSize={70}
-                  letterSpacing={0.7}
+                  letterSpacing={2}
                 >
-                  Youtube Summary
+                  VINSIGHT
                   <Typography
                     fontFamily={"Papyrus"}
                     fontWeight={600}
@@ -131,28 +177,19 @@ export default function Home() {
                   >
                     <mark style={{ backgroundColor: "#FFFF00" }}>
                       Transform
-                    </mark>
+                    </mark>{" "}
                     long, boring YouTube videos into digestible bites of
-                    information with our innovative summarization app! Are you
-                    tired of sifting through long, tedious
+                    information with our innovative summarization app! It
+                    works with any YouTube video!
                     <mark style={{ backgroundColor: "#FFFF00" }}>
-                      YouTube videos
+                      GPT-3 powered
                     </mark>{" "}
-                    to find the information you need? Look no further! We are
-                    here to help. With just a few clicks, you can easily
-                    <mark style={{ backgroundColor: "#FFFF00" }}>
-                      generate a summary
-                    </mark>{" "}
-                    of any YouTube video, saving you time and effort. Whether
-                    you're a student, a professional, or just someone who loves
-                    to learn, this tool is perfect for you. So why wait? Give it
-                    a try today
                   </Typography>
                 </Typography>
               </Box>
               <Box>
                 <form onSubmit={onSubmit}>
-                  <Stack direction={{ xs: "row", sm: "column" }}>
+                  <Stack direction={{ xs: "column", sm: "column" }}>
                     <CustomTextField
                       fullWidth
                       type="text"
@@ -168,6 +205,18 @@ export default function Home() {
                       placeholder="Enter a prompt"
                       onChange={(e) => setPrompt(e.target.value)}
                     />
+                    <Typography
+                      fontFamily={"Papyrus"}
+                      fontWeight={600}
+                      fontSize={10}
+                      letterSpacing={1}
+                      color="grey"
+                    >
+                      <mark style={{ backgroundColor: "#FFFF00" }}>
+                        Try: 
+                      </mark> {" "}
+                      "Summarize the follwing in a first person narrative", "Creat a bullet-point list" 
+                    </Typography>
 
                     <Button
                       variant="outlined"
@@ -201,15 +250,11 @@ export default function Home() {
               </Box>
             </Stack>
           </Box>
-          <Stack
-            direction={{ xs: "column", sm: "row" }}
-            spacing={{ xs: 5, sm: 5, md: 10 }}
-            divider={
-              <Divider sx={{ height: 700 }} orientation="vertical" flexItem />
-            }
-          >
             <Grid>
-              <Box sx={{ p: 3, mt: 2, mx: 15 }}>
+              <Box 
+              mx={{ xs: 0, sm: 0, md: 15 }}
+              mt={{ xs: 0, sm: 0, md: 0 }}
+              p={{ xs: 0, sm: 0, md: 3 }}>
                 <Typography
                   fontWeight={900}
                   fontSize={16}
@@ -219,7 +264,6 @@ export default function Home() {
                 </Typography>
               </Box>
             </Grid>
-          </Stack>
         </div>
       )}
     </>
