@@ -105,6 +105,7 @@ export default function Home() {
       {domLoaded && (
         <div>
           <Head>
+            <link rel="icon" href="logo2.png" />
             <title>Youtube Summary</title>
           </Head>
           <AppBar
