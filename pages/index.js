@@ -1,7 +1,9 @@
 import Head from "next/head";
 import { StrictMode, useState, useEffect } from "react";
+import logo2 from "../public/logo2.png";
 import Particles from "./particles";
-import { particlesOptions } from "../config/config";
+import { loadSlim } from "tsparticles-slim";
+import { particlesOptions } from "../config/config.js"
 import { BarLoader } from "react-spinners";
 import {
   Box,
@@ -105,71 +107,60 @@ export default function Home() {
       {domLoaded && (
         <div>
           <Head>
-            <link rel="icon" href="logo2.png" />
             <title>Youtube Summary</title>
           </Head>
-          <AppBar
-            sx={{
-              backgroundColor: "white",
-              borderColor: "white",
-              opacity: 0.9,
-              boxShadow: 0,
-            }}
-            position="static"
-            fullWidth
-          >
+          <AppBar sx={{backgroundColor: "white", borderColor: "white", opacity: 0.9, boxShadow: 0}} position="static" fullWidth>
             <Toolbar>
-              <Box
-                component="img"
-                sx={{
-                  height: 64,
-                  opacity: 1,
-                }}
-                alt="Your logo."
-                src={"logo2.png"}
-              />
-              <Box ml={"auto"} mr={{ xs: -20, md: 0 }}>
-                <Link href="https://www.linkedin.com/in/gedion-alemayehu/">
-                  <Button
+                <Box
+                    component="img"
                     sx={{
-                      borderRadius: 10,
-                      borderColor: "black",
-                      color: "black",
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#FFFF00",
-                        borderColor: "#FFFF00",
-                      },
+                    height: 64,
+                    opacity: 1  ,
                     }}
+                    alt="Your logo."
+                    src={"logo2.png"}
+                    
+                />
+                  <Box
+                  ml={'auto'}
+                  mr={{xs:-20, md:0}}
                   >
-                    <Typography
-                      fontFamily={"Papyrus"}
-                      fontWeight={600}
-                      fontSize={11}
-                      letterSpacing={1}
-                      sx={{ color: "black" }}
+                    <Link href="https://www.linkedin.com/in/gedion-alemayehu/">
+                    <Button
+                      sx={{
+                        borderRadius: 10,
+                        borderColor: "black",
+                        color: "black",
+                        "&:hover": {
+                          color: "white",
+                          backgroundColor: "#FFFF00",
+                          borderColor: "#FFFF00",
+                        },
+                      }}
                     >
-                      Contact Us
-                    </Typography>
-                  </Button>
-                </Link>
-              </Box>
+                        <Typography 
+                            fontFamily={"Papyrus"}  
+                            fontWeight={600}
+                            fontSize={11}
+                            letterSpacing={1}
+                            sx={{color: "black"}}
+                        >
+                          Contact Us
+                        </Typography>
+                    </Button>
+                    </Link>
+                  </Box>
             </Toolbar>
           </AppBar>
-          <Box sx={{ display: "flex" }}>
+          <Box sx={{ display: "flex"} }>
             <Stack
-<<<<<<< HEAD
               sx={{mx: "auto" }}
               padding={{ xs: 10, sm: 1, md: 20 }}
-=======
-              sx={{ mx: "auto" }}
-              padding={{ xs: 1, sm: 1, md: 20 }}
->>>>>>> 57379851a0b51a336e7877b9ce62a9a75f6b46e5
               direction={{ xs: "column", sm: "row" }}
               spacing={{ xs: 10, sm: 10, md: 10 }}
               divider={<Divider orientation="vertical" flexItem />}
             >
-              <Box sx={{ display: "flex" }}>
+              <Box sx={{ display: "flex" }} >
                 <Typography
                   fontFamily={"Papyrus"}
                   fontWeight={900}
@@ -187,8 +178,8 @@ export default function Home() {
                       Transform
                     </mark>{" "}
                     long, boring YouTube videos into digestible bites of
-                    information with our innovative summarization app! It works
-                    with any YouTube video!
+                    information with our innovative summarization app! It
+                    works with any YouTube video!
                     <mark style={{ backgroundColor: "#FFFF00" }}>
                       GPT-3 powered
                     </mark>{" "}
@@ -220,9 +211,10 @@ export default function Home() {
                       letterSpacing={1}
                       color="grey"
                     >
-                      <mark style={{ backgroundColor: "#FFFF00" }}>Try:</mark>{" "}
-                      "Summarize the follwing in a first person narrative",
-                      "Creat a bullet-point list"
+                      <mark style={{ backgroundColor: "#FFFF00" }}>
+                        Try: 
+                      </mark> {" "}
+                      "Summarize the follwing in a first person narrative", "Creat a bullet-point list" 
                     </Typography>
 
                     <Button
@@ -257,17 +249,20 @@ export default function Home() {
               </Box>
             </Stack>
           </Box>
-          <Grid>
-            <Box
+            <Grid>
+              <Box 
               mx={{ xs: 0, sm: 0, md: 15 }}
               mt={{ xs: 0, sm: 0, md: 0 }}
-              p={{ xs: 0, sm: 0, md: 3 }}
-            >
-              <Typography fontWeight={900} fontSize={16} fontFamily={"Papyrus"}>
-                {result}
-              </Typography>
-            </Box>
-          </Grid>
+              p={{ xs: 0, sm: 0, md: 3 }}>
+                <Typography
+                  fontWeight={900}
+                  fontSize={16}
+                  fontFamily={"Papyrus"}
+                >
+                  {result}
+                </Typography>
+              </Box>
+            </Grid>
         </div>
       )}
     </>
