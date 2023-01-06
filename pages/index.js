@@ -108,60 +108,59 @@ export default function Home() {
         <div>
           <Head>
             <title>Youtube Summary</title>
+            <link rel="icon" href="/logo2.png" />
           </Head>
           <Grid>
-          <AppBar
-            sx={{
-              backgroundColor: "white",
-              borderColor: "white",
-              opacity: 0.9,
-              boxShadow: 0,
-            }}
-            position="static"
-            fullWidth
-          >
-            <Toolbar>
-              <Box
-                component="img"
-                sx={{
-                  height: 64,
-                  opacity: 1,
-                }}
-                alt="Your logo."
-                src={"logo2.png"}
-              />
-              <Box ml={"auto"} mr={{ xs: -20, md: 0 }}>
-                <Link href="https://www.linkedin.com/in/gedion-alemayehu/">
-                  <Button
-                    sx={{
-                      borderRadius: 10,
-                      borderColor: "black",
-                      color: "black",
-                      "&:hover": {
-                        color: "white",
-                        backgroundColor: "#FFFF00",
-                        borderColor: "#FFFF00",
-                      },
-                    }}
-                  >
-                    <Typography
-                      fontFamily={"Papyrus"}
-                      fontWeight={600}
-                      fontSize={11}
-                      letterSpacing={1}
-                      sx={{ color: "black" }}
+            <AppBar
+              sx={{
+                backgroundColor: "white",
+                borderColor: "white",
+                opacity: 0.9,
+                boxShadow: 0,
+              }}
+              position="static"
+              fullWidth
+            >
+              <Toolbar>
+                <Box
+                  component="img"
+                  sx={{
+                    height: 64,
+                    opacity: 1,
+                  }}
+                  alt="Your logo."
+                  src={"logo2.png"}
+                />
+                <Box ml={"auto"} mr={{ xs: -20, md: 0 }}>
+                  <Link href="https://www.linkedin.com/in/gedion-alemayehu/">
+                    <Button
+                      sx={{
+                        borderRadius: 10,
+                        borderColor: "black",
+                        color: "black",
+                        "&:hover": {
+                          color: "white",
+                          backgroundColor: "#FFFF00",
+                          borderColor: "#FFFF00",
+                        },
+                      }}
                     >
-                      Contact Us
-                    </Typography>
-                  </Button>
-                </Link>
-              </Box>
-            </Toolbar>
-          </AppBar>
+                      <Typography
+                        fontFamily={"Papyrus"}
+                        fontWeight={600}
+                        fontSize={11}
+                        letterSpacing={1}
+                        sx={{ color: "black" }}
+                      >
+                        Contact Us
+                      </Typography>
+                    </Button>
+                  </Link>
+                </Box>
+              </Toolbar>
+            </AppBar>
           </Grid>
-          <Grid
-            xs={'auto'}
-          >
+          <Grid xs={"auto"}>
             <Stack
               sx={{ mx: "auto" }}
               padding={{ xs: "auto", sm: 1, md: 20 }}
