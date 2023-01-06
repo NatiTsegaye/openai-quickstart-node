@@ -160,7 +160,7 @@ export default function Home() {
           </AppBar>
           </Grid>
           <Grid
-            sx={{ display: "flex" }}
+            xs={'auto'}
           >
             <Stack
               sx={{ mx: "auto" }}
