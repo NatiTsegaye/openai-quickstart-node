@@ -109,8 +109,8 @@ export default function Home() {
           <Head>
             <title>Youtube Summary</title>
           </Head>
+          <Grid>
           <AppBar
-            maxWidth={"90vw"}
             sx={{
               backgroundColor: "white",
               borderColor: "white",
@@ -158,10 +158,9 @@ export default function Home() {
               </Box>
             </Toolbar>
           </AppBar>
-          <Box
-            maxWidth={"90vw"}
+          </Grid>
+          <Grid
             sx={{ display: "flex" }}
-            padding={{ xs: "auto" }}
           >
             <Stack
               sx={{ mx: "auto" }}
@@ -257,7 +256,7 @@ export default function Home() {
                 </form>
               </Box>
             </Stack>
-          </Box>
+          </Grid>
           <Grid>
             <Box
               mx={{ xs: 0, sm: 0, md: 15 }}
