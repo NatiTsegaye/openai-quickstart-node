@@ -152,10 +152,10 @@ export default function Home() {
                   </Box>
             </Toolbar>
           </AppBar>
-          <Box sx={{ display: "flex"} }>
+          <Box sx={{ display: "flex"} } padding={{ xs: 'auto'}}>
             <Stack
               sx={{mx: "auto" }}
-              padding={{ xs: 10, sm: 1, md: 20 }}
+              padding={{ xs: 'auto', sm: 1, md: 20 }}
               direction={{ xs: "column", sm: "row" }}
               spacing={{ xs: 10, sm: 10, md: 10 }}
               divider={<Divider orientation="vertical" flexItem />}
