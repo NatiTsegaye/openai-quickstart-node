@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { StrictMode, useState, useEffect } from "react";
 import Particles from "./particles";
-import { particlesOptions } from "./config/config";
+import { particlesOptions } from "../config/config";
 import { BarLoader } from "react-spinners";
 import {
   Box,
