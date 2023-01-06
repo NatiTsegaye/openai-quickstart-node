@@ -156,7 +156,7 @@ export default function Home() {
           <Box sx={{ display: "flex"} }>
             <Stack
               sx={{mx: "auto" }}
-              padding={{ xs: 1, sm: 1, md: 20 }}
+              padding={{ xs: 10, sm: 1, md: 20 }}
               direction={{ xs: "column", sm: "row" }}
               spacing={{ xs: 10, sm: 10, md: 10 }}
               divider={<Divider orientation="vertical" flexItem />}
